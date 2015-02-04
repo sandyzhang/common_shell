@@ -1,0 +1,1 @@
+cat /home/admin/cai/logs/cronolog/2015/01/2015-01-05-taobao-access_log | awk '$7~/item.htm/ && $8=200{a[$7]++}END{n=asorti(a);for(i=n;i>n-100;i--){print i,a[i]}}'    

@@ -1,0 +1,4 @@
+cat /opt/taobao/tengine/logs/access.log  | awk  '$4~/22\/Sep\/2014/ && $7~/orderConfirm/{print $4}' | wc -l
+1447
+
+cat /opt/taobao/tengine/logs/access.log  | awk  '$7~/orderConfirm/{print $7}' | wc -l

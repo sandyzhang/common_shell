@@ -1,0 +1,8 @@
+1.第一种方法：使用grep命令进行统计
+grep -o '字符串' file |wc -l
+
+2.第二种方法：使用awk命令进行统计
+awk -v RS="@#$j" '{print gsub(/字符串/,"&")}' file
+
+3.第三种方法：另一种使用awk命令进行统计的方法
+awk  '{s+=gsub(/字符串/,"&")}END{print s}' file

@@ -1,0 +1,9 @@
+ssh/scp 免输入密码
+假设你想从 A 无密码登录到 B：
+# 在 A 机器上执行
+ssh-keygen -t dsa # 生成公钥密钥，如有问答，一路回车……
+scp ~/.ssh/id_dsa.pub B: # 将 A 的公钥复制到 B 上
+# 在 B 机器上执行
+cat ~/id_dsa.pub >> ~/.ssh/authorized_keys # 允许被 A 登录
+rm ~/id_dsa.pub # 没用了
+如依然需要输入密码，一般是权限还不够安全，请检查 ~/.ssh 及 ~/.ssh/* 的权限，~/.ssh 应当是 700，~/.ssh/* 应当是 600。
